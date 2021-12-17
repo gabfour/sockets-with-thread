@@ -4,10 +4,7 @@
 #include "Carte.h"
 #include <math.h>
 
-//int Deck::cartesRestantes(std::list<Carte> cartes)
-//{
-//	return 0;
-//}
+//A FAIRE : Créer fonction qui sort automatiquement un nombre de cartes aléatoires et les suppr du deck
 
 Deck::Deck() {}
 
@@ -40,7 +37,7 @@ void Deck::deckDeDepart() {
 }
 
 std::list<Carte> Deck::getDeck() {
-	return Deck::deck;
+	return deck;
 }
 
 void Deck::supprCarte(Carte carte) {
