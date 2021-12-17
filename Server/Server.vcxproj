@@ -153,6 +153,7 @@
     <ClCompile Include="StoppableServer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\AppData\Local\Temp\json.hpp" />
     <ClInclude Include="Carte.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="EndPoint.h" />

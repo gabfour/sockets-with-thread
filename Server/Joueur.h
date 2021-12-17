@@ -14,10 +14,11 @@ private:
 	int getId();
 	void setId(int newId);
 	void setPointJoueur(int newPoint);
-	void setCarteJoueur();
 
 public:
 	Joueur(Client* client);
 	int getPointJoueur();
 	std::list<Carte> getCarteJoueur();
+	void setCarteJoueur(Carte* carte);
+	void sendCarteToClient();
 };

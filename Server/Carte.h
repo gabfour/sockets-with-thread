@@ -10,6 +10,7 @@ private :
 	void setVal(int newVal);
 
 public :
+	Carte(int val, int point);
 	int getPointCarte();
 	int getValCarte();
 };

@@ -21,6 +21,7 @@
 #include "Output.h"
 #include "Joueur.h"
 #include "Game.h"
+
 #ifdef _WIN32
 Client::Client(int id, SOCKET socket, const int MAXDATASIZE, Game *game) : id(id), socket(socket), MAXDATASIZE(MAXDATASIZE), is_alive(true), game(game)
 {

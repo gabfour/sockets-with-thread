@@ -39,7 +39,6 @@ private:
 	std::thread thread;
 	char* buffer;
 
-	bool send_message(const char*);
 	int recv_message();
 	bool close_socket();
 	void execute_thread();
@@ -52,7 +51,7 @@ public:
 	Client(int, int, const int MAXDATASIZE, Game *game);
 #endif
 	~Client();
-
+	bool send_message(const char*);
 	void start_thread();
 	void end_thread();
 	void join_thread();
