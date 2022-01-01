@@ -16,7 +16,7 @@ void Deck::deckDeDepart() {
 		Carte carte;
 		carte.setVal(i);
 
-		int dizaine = floor(i / 10);
+		int dizaine = (int)floor(i / 10);
 		int unite = i - dizaine * 10;
 
 		if (unite == dizaine) {
@@ -41,7 +41,7 @@ std::list<Carte> Deck::getDeck() {
 }
 
 void Deck::supprCarte(Carte carte) {
-	deck.remove(carte);
+	//deck.remove(carte);
 }
 
 

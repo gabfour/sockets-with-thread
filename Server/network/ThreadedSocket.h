@@ -17,45 +17,39 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #endif
+
 #include <thread>
-#include <vector>
-#include "Client.h"
+#include "../utils/Output.h"
+#include "CrossPlatform.h"
 
-#ifndef ENDPOINT_H
-#define ENDPOINT_H
+#ifndef THREADED_SOCKET_H
+#define THREADED_SOCKET_H
 
-class EndPoint
+class ThreadedSocket
 {
-private:
+protected:
+	char* output_prefix;
 	const int MAXDATASIZE;
-	const int BACKLOG;
-	int connection_port;
-	bool is_alive;
 	bool init_winsocks;
-#ifdef _WIN32
-	SOCKET connection_socket;
-#else
-	int connection_socket;
-#endif
+	Socket socket_;
+	bool is_alive;
 	std::thread thread;
-	std::vector<Client*> clients;
-		
-	bool open();
-#ifdef _WIN32
-	SOCKET accept_connection();
-#else
-	int accept_connection();
-#endif
-	bool close();
-	void execute_thread();
+
+	virtual bool close_socket();
+
+	virtual void execute_thread() = 0;
+
 
 public:
-	EndPoint(int, const int, const int, bool);
-	~EndPoint();
+	ThreadedSocket(Socket, bool, const int);
+	~ThreadedSocket();
 
 	void start_thread();
-	void end_thread();
+	virtual void end_thread();
 	void join_thread();
+
+	bool get_is_alive();
 };
+
 
 #endif
