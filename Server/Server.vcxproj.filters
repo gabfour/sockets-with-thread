@@ -31,6 +31,12 @@
     <Filter Include="Source Files\game">
       <UniqueIdentifier>{c659c127-ae1d-417a-a20b-d976280f4ca4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\network\messages">
+      <UniqueIdentifier>{a3f3620a-1ad5-4c70-a2d4-f50a1f9da5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\messages">
+      <UniqueIdentifier>{392cb816-317d-479a-bea5-a383ad7b8f2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -65,6 +71,9 @@
     </ClCompile>
     <ClCompile Include="game\Deck.cpp">
       <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="network\messages\DefaultMessage.cpp">
+      <Filter>Source Files\network\messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="game\Plateau.h">
       <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="network\messages\DefaultMessage.h">
+      <Filter>Header Files\network\messages</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

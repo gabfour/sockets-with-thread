@@ -46,7 +46,7 @@ void Server::execute_thread() {
         auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this));
         client->start_thread();
         clients.push_back(std::move(client));
-        Output::GetInstance()->print(output_prefix, "Number of clients ", clients.size());
+        Output::GetInstance()->print(output_prefix, "Number of clients ", clients.size(), "\n");
     }
     is_running = false;
 }

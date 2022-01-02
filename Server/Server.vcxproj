@@ -26,6 +26,7 @@
     <ClCompile Include="game\Plateau.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="network\Client.cpp" />
+    <ClCompile Include="network\messages\DefaultMessage.cpp" />
     <ClCompile Include="network\Server.cpp" />
     <ClCompile Include="network\ThreadedSocket.cpp" />
     <ClCompile Include="utils\Ouput.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="network\Client.h" />
     <ClInclude Include="network\Config.h" />
     <ClInclude Include="network\CrossPlatform.h" />
+    <ClInclude Include="network\messages\DefaultMessage.h" />
     <ClInclude Include="network\Server.h" />
     <ClInclude Include="network\ServerClient.h" />
     <ClInclude Include="network\ThreadedSocket.h" />
@@ -145,10 +147,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\alexa\OneDrive\Documents\Work\Info\2021-2022\DevLogicielAvance\Project\sockets-with-thread\Libs\json\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\alexa\OneDrive\Documents\Work\Info\2021-2022\DevLogicielAvance\Project\sockets-with-thread\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -1,0 +1,29 @@
+﻿<Page x:Class="Client.Views.LoggedOutView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client.Views"
+      mc:Ignorable="d" 
+      WindowHeight="400" WindowWidth="300"
+      d:DesignHeight="400" d:DesignWidth="300"
+      Background="White"
+      Title="LoggedOutView">
+    <Grid  HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Content="Host Address"/>
+        <TextBox Grid.Row="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="{Binding Host, FallbackValue='localhost'}" MaxLines="1"/>
+        <Label Grid.Row="2" Content="Port"/>
+        <TextBox Grid.Row="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Port, FallbackValue='3490'}" MaxLines="1"/>
+        <Button Grid.Row="4" Content="Connect" IsEnabled="{Binding EnableConnectBtn}" Command="{Binding OnConnectClicked}"/>
+        <ProgressBar Grid.Row="5" HorizontalAlignment="Stretch" Height="20" IsIndeterminate="True" Visibility="{Binding ShowProgressBar}" />
+    </Grid>
+
+</Page>
