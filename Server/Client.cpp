@@ -21,8 +21,21 @@
 #include "ThreadedSocket.h"
 #include "Client.h"
 #include "Output.h"
-
+#include "Joueur.h"
+#include "Game.h"
 #ifdef _WIN32
+
+Client::Client(int id, SOCKET socket, const int MAXDATASIZE, Game *game) : id(id), socket(socket), MAXDATASIZE(MAXDATASIZE), is_alive(true), game(game)
+{
+	joueur = new Joueur(this);
+	game->addJoueur(joueur);
+    buffer = new char[MAXDATASIZE];
+}
+#else
+Client::Client(int id, int socket, const int MAXDATASIZE, Game *game) : id(id), socket(socket), MAXDATASIZE(MAXDATASIZE), is_alive(true), game(game)
+{
+	joueur = new Joueur();
+    buffer = new char[MAXDATASIZE];
 Client::Client(int id, SOCKET socket, const int MAXDATASIZE) : ThreadedSocket(socket, false, MAXDATASIZE), id(id)
 {
 	buffer = new char[MAXDATASIZE];
@@ -48,6 +61,9 @@ Client::Client(int id, int socket, const int MAXDATASIZE) : ThreadedSocket(socke
 
 Client::~Client()
 {
+    end_thread();
+    delete[] buffer;
+	delete joueur;
 	ThreadedSocket::~ThreadedSocket();
 	delete[] buffer;
 	free(output_prefix);
@@ -119,6 +135,31 @@ void Client::execute_thread()
 		if (socket_ == NULL || !is_alive)
 			return;
 
+        // Affichage du message
+		Output::GetInstance()->print("[CLIENT_", id, "] Message received : ", buffer, "\n");
+		
+		//JSON a faire pour le buffer, le client envoie des JSON c'est mieux
+
+        if (strcmp(buffer, "DISCONNECT") == 0) {
+            break;
+        }
+        else {
+            // On recupere l'heure et la date
+            time(&time_value);
+            time_info = localtime(&time_value);
+
+            // Traitement du message reçu
+            if (strcmp(buffer, "DATE") == 0)
+                strftime(buffer, MAXDATASIZE, "%e/%m/%Y", time_info);
+            else if (strcmp(buffer, "DAY") == 0)
+                strftime(buffer, MAXDATASIZE, "%A", time_info);
+            else if (strcmp(buffer, "MONTH") == 0)
+                strftime(buffer, MAXDATASIZE, "%B", time_info);
+			else if (strcmp(buffer, "READY") == 0) {
+				game->setJoueurReady();
+			}
+            else
+                sprintf(buffer, "%s is not recognized as a valid command", buffer);
 		// Affichage du message
 		Output::GetInstance()->print(output_prefix, "Message received : ", buffer, "\n");
 
@@ -130,7 +171,7 @@ void Client::execute_thread()
 			time(&time_value);
 			time_info = localtime(&time_value);
 
-			// Traitement du message re�u
+			// Traitement du message reçu
 			if (strcmp(buffer, "DATE") == 0)
 				strftime(buffer, MAXDATASIZE, "%e/%m/%Y", time_info);
 			else if (strcmp(buffer, "DAY") == 0)
