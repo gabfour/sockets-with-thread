@@ -27,6 +27,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="network\Client.cpp" />
     <ClCompile Include="network\messages\DefaultMessage.cpp" />
+    <ClCompile Include="network\messages\ProfileMessage.cpp" />
     <ClCompile Include="network\Server.cpp" />
     <ClCompile Include="network\ThreadedSocket.cpp" />
     <ClCompile Include="utils\Ouput.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="network\Config.h" />
     <ClInclude Include="network\CrossPlatform.h" />
     <ClInclude Include="network\messages\DefaultMessage.h" />
+    <ClInclude Include="network\messages\ProfileMessage.h" />
     <ClInclude Include="network\Server.h" />
     <ClInclude Include="network\ServerClient.h" />
     <ClInclude Include="network\ThreadedSocket.h" />

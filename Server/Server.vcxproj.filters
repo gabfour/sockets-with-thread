@@ -75,6 +75,9 @@
     <ClCompile Include="network\messages\DefaultMessage.cpp">
       <Filter>Source Files\network\messages</Filter>
     </ClCompile>
+    <ClCompile Include="network\messages\ProfileMessage.cpp">
+      <Filter>Source Files\network\messages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="network\ThreadedSocket.h">
@@ -117,6 +120,9 @@
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="network\messages\DefaultMessage.h">
+      <Filter>Header Files\network\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="network\messages\ProfileMessage.h">
       <Filter>Header Files\network\messages</Filter>
     </ClInclude>
   </ItemGroup>
