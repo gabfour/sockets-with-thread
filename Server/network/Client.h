@@ -17,8 +17,8 @@
 #include <arpa/inet.h>
 #endif
 #include <thread>
-#include "Joueur.h"
-#include "Game.h"
+#include "../game/Joueur.h"
+#include "../game/Game.h"
 #include "ThreadedSocket.h"
 
 #ifndef CLIENT_H
@@ -31,9 +31,8 @@
 class Client : public ThreadedSocket
 {
 private:
-	Joueur *joueur;
-	Game *game;
-	const int MAXDATASIZE;
+	Joueur* joueur;
+	Game* game;
 protected:
 	int id;
 	char* buffer;
@@ -41,11 +40,9 @@ protected:
 
 	void execute_thread();
 
-	void execute_thread();
-
 	bool send_message(const char*);
 	int recv_message();
-	
+
 
 public:
 	Client(int, Socket, Server&);
@@ -54,6 +51,7 @@ public:
 	void start_thread();
 	void end_thread();
 	void join_thread();
+	const int get_id() const;
 };
 
 #endif
