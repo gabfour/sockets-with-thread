@@ -18,10 +18,42 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="game\Carte.cpp" />
+    <ClCompile Include="game\Deck.cpp" />
+    <ClCompile Include="game\Game.cpp" />
+    <ClCompile Include="game\Joueur.cpp" />
+    <ClCompile Include="game\Plateau.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="network\Client.cpp" />
+    <ClCompile Include="network\messages\DefaultMessage.cpp" />
+    <ClCompile Include="network\messages\ProfileMessage.cpp" />
+    <ClCompile Include="network\Server.cpp" />
+    <ClCompile Include="network\ThreadedSocket.cpp" />
+    <ClCompile Include="utils\Ouput.cpp" />
+    <ClCompile Include="utils\Semaphore.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game\Carte.h" />
+    <ClInclude Include="game\Deck.h" />
+    <ClInclude Include="game\Game.h" />
+    <ClInclude Include="game\Joueur.h" />
+    <ClInclude Include="game\Plateau.h" />
+    <ClInclude Include="network\Client.h" />
+    <ClInclude Include="network\Config.h" />
+    <ClInclude Include="network\CrossPlatform.h" />
+    <ClInclude Include="network\messages\DefaultMessage.h" />
+    <ClInclude Include="network\messages\ProfileMessage.h" />
+    <ClInclude Include="network\Server.h" />
+    <ClInclude Include="network\ServerClient.h" />
+    <ClInclude Include="network\ThreadedSocket.h" />
+    <ClInclude Include="utils\Output.h" />
+    <ClInclude Include="utils\Semaphore.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{df7b7210-66a3-40ec-b5a1-0721616edc7c}</ProjectGuid>
+    <ProjectGuid>{12318c9c-ce0d-4ce1-9656-521dbd4c4a52}</ProjectGuid>
     <RootNamespace>Server</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -88,7 +120,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,10 +149,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\alexa\OneDrive\Documents\Work\Info\2021-2022\DevLogicielAvance\Project\sockets-with-thread\Libs\json\single_include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\alexa\OneDrive\Documents\Work\Info\2021-2022\DevLogicielAvance\Project\sockets-with-thread\Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -140,30 +173,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Carte.cpp" />
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="EndPoint.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Joueur.cpp" />
-    <ClCompile Include="Ouput.cpp" />
-    <ClCompile Include="Plateau.cpp" />
-    <ClCompile Include="Semaphore.cpp" />
-    <ClCompile Include="Server.cpp" />
-    <ClCompile Include="StoppableServer.cpp" />
-    <ClCompile Include="ThreadedSocket.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Carte.h" />
-    <ClInclude Include="Client.h" />
-    <ClInclude Include="EndPoint.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Joueur.h" />
-    <ClInclude Include="Output.h" />
-    <ClInclude Include="Plateau.h" />
-    <ClInclude Include="Semaphore.h" />
-    <ClInclude Include="ThreadedSocket.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

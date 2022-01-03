@@ -1,77 +1,129 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers sources">
+    <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête">
+    <Filter Include="Header Files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Fichiers de ressources">
+    <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\network">
+      <UniqueIdentifier>{ee08b90e-2516-45a4-818e-f94d38f82aeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network">
+      <UniqueIdentifier>{716b9558-b69e-4eb3-b30f-8c1cd22e067e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\utils">
+      <UniqueIdentifier>{cbc8e5cd-5a2e-490b-b91b-4a2996392669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\utils">
+      <UniqueIdentifier>{e86d24ec-8157-40d7-8971-b8eefda86f35}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\game">
+      <UniqueIdentifier>{3f57b726-667b-48d0-b0f3-1d785ad15b06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\game">
+      <UniqueIdentifier>{c659c127-ae1d-417a-a20b-d976280f4ca4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\network\messages">
+      <UniqueIdentifier>{a3f3620a-1ad5-4c70-a2d4-f50a1f9da5b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\network\messages">
+      <UniqueIdentifier>{392cb816-317d-479a-bea5-a383ad7b8f2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Server.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Semaphore.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="network\ThreadedSocket.cpp">
+      <Filter>Source Files\network</Filter>
     </ClCompile>
-    <ClCompile Include="StoppableServer.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="network\Client.cpp">
+      <Filter>Source Files\network</Filter>
     </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="network\Server.cpp">
+      <Filter>Source Files\network</Filter>
     </ClCompile>
-    <ClCompile Include="EndPoint.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="utils\Ouput.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Ouput.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="utils\Semaphore.cpp">
+      <Filter>Source Files\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Carte.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="game\Game.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="game\Joueur.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="Joueur.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="game\Plateau.cpp">
+      <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="Plateau.cpp">
-    <ClCompile Include="ThreadedSocket.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="game\Carte.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="game\Deck.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
+    <ClCompile Include="network\messages\DefaultMessage.cpp">
+      <Filter>Source Files\network\messages</Filter>
+    </ClCompile>
+    <ClCompile Include="network\messages\ProfileMessage.cpp">
+      <Filter>Source Files\network\messages</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Semaphore.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\ThreadedSocket.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\ServerClient.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="EndPoint.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\CrossPlatform.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="Output.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\Config.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="Carte.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\Client.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="network\Server.h">
+      <Filter>Header Files\network</Filter>
     </ClInclude>
-    <ClInclude Include="Plateau.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="utils\Semaphore.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Joueur.h">
-    <ClInclude Include="ThreadedSocket.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="utils\Output.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Carte.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Deck.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Game.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Joueur.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="game\Plateau.h">
+      <Filter>Header Files\game</Filter>
+    </ClInclude>
+    <ClInclude Include="network\messages\DefaultMessage.h">
+      <Filter>Header Files\network\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="network\messages\ProfileMessage.h">
+      <Filter>Header Files\network\messages</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
