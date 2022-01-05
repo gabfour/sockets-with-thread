@@ -49,14 +49,12 @@ namespace Client.ViewModels
         public LoggedInViewModel(Page page) : base(page)
         {
             Output.OutputEventHandler += HandlerLogs;
-            ClientService.Instance.StartListening();
 
         }
 
         ~LoggedInViewModel()
         {
             Output.OutputEventHandler -= HandlerLogs;
-            ClientService.Instance.StopListening();
         }
 
         private void HandlerLogs(object? sender, string e)

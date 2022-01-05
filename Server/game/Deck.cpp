@@ -10,7 +10,7 @@ Deck::Deck() {}
 
 Deck::~Deck() {}
 
-void Deck::deckDeDepart() {
+void Deck::startingDeck() {
 
 	for (int i = 1; i < 105; i++) {
 		Carte carte;
@@ -40,11 +40,11 @@ std::list<Carte> Deck::getDeck() {
 	return deck;
 }
 
-void Deck::supprCarte(Carte carte) {
+void Deck::deleteCard(Carte carte) {
 	//deck.remove(carte);
 }
 
 
-void Deck::ajouterCarte(Carte carte) {
+void Deck::addCard(Carte carte) {
 	deck.push_back(carte);
 }

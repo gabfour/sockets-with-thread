@@ -1,4 +1,5 @@
-﻿using Client.Utils;
+﻿using Client.Network.Messages;
+using Client.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,11 +36,44 @@ namespace Client.Services
         public bool IsRunning { get => _running; }
         private Thread _backgroundJobClientListener;
         public bool IsBackgroundJobAlive { get => _backgroundJobClientListener?.IsAlive == true; }
+        private Dictionary<int, List<Action<object?>>> _onMessageReceived = new Dictionary<int, List<Action<object?>>>();
 
         public async Task<bool> TryToConnectToTheServer(string host, int port)
         {
             _client = await Network.Client.ConnectToServer(host, port);
             return _client != null;
+        }
+
+        public void AddListener(int id, Action<object?> action)
+        {
+            List<Action<object?>> actions = new List<Action<object?>>();
+            if (_onMessageReceived.ContainsKey(id))
+            {
+                actions = _onMessageReceived[id];
+            }
+            if (actions.Contains(action))
+            {
+                return;
+            }
+            actions.Add(action);
+            _onMessageReceived.Remove(id);
+            _onMessageReceived.Add(id, actions);
+        }
+
+        public void RemoveListener(int id, Action<object?> action)
+        {
+            if (!_onMessageReceived.ContainsKey(id))
+            {
+                return;
+            }
+            var actions = _onMessageReceived[id];
+            if (!actions.Contains(action))
+            {
+                return;
+            }
+            actions.Remove(action);
+            _onMessageReceived.Remove(id);
+            _onMessageReceived.Add(id, actions);
         }
 
         public bool StartListening()
@@ -56,9 +90,23 @@ namespace Client.Services
                 while (_running)
                 {
                     if (!IsConnected) continue;
-                    var message = _client.WaitReceiveMessage();
+                    var buffer = _client.WaitReceiveMessage();
+                    if (buffer == null) continue;
+                    Output.Log(TAG, $"New message received : {buffer}");
+                    var message = DefaultMessage.HandleMessage(_client, buffer);
                     if (message == null) continue;
-                    Output.Log(TAG,$"New message received : {message}");
+                    var model = message.Deserialized();
+                    if (_onMessageReceived.ContainsKey(message.Id))
+                    {
+                        _ = Task.Factory.StartNew(() => _onMessageReceived[message.Id].ForEach(x =>
+                        {
+                            try
+                            {
+                                x.Invoke(model);
+                            }
+                            catch { }
+                        }));
+                    }
                 }
                 Output.Log(TAG, "Backgroung job stopped");
             });

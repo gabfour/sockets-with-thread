@@ -1,4 +1,6 @@
-﻿using Client.Services;
+﻿using Client.Network.MessageModels;
+using Client.Network.Messages;
+using Client.Services;
 using Client.Utils;
 using Client.Views;
 using System;
@@ -19,7 +21,22 @@ namespace Client.ViewModels
         private static string TAG = "LoggedOutViewModel";
 
         public LoggedOutViewModel(Page page) : base(page)
-        { }
+        {
+            ClientService.Instance.AddListener(LoginMessage.ID, HandleLoginResponse);
+        }
+
+        private void HandleLoginResponse(object? modelObj)
+        {
+            if (modelObj == null) return;
+            if (modelObj is LoginMessageModelInput)
+            {
+                var model = modelObj as LoginMessageModelInput;
+                if (model.message.Contains("success"))
+                {
+                    Application.Current?.Dispatcher.Invoke(new Action(() => { _page.NavigationService.Navigate(new LoggedInView()); }));
+                }
+            }
+        }
 
         public string _host = "localhost";
         public string Host
@@ -79,8 +96,9 @@ namespace Client.ViewModels
                     Output.LogError(TAG, "Connection to the server failed");
                     return;
                 }
-                Application.Current?.Dispatcher.Invoke(new Action(() => { _page.NavigationService.Navigate(new LoggedInView()); }));
 
+                ClientService.Instance.StartListening();
+                LoginMessage.SendLoginMessage("admin", "addmin");
             });
         }
     }
