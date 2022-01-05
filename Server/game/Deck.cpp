@@ -41,7 +41,7 @@ std::list<Carte> Deck::getDeck() {
 }
 
 void Deck::deleteCard(Carte carte) {
-	//deck.remove(carte);
+	deck.remove(carte);
 }
 
 
