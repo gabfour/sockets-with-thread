@@ -31,11 +31,12 @@ public:
 
 	bool get_is_running();
 private:
+	Game* game;
 	std::unique_ptr<std::thread> _runningThread;
 
 	bool is_running;
 
-	std::vector<std::unique_ptr<Client>> clients;
+	std::vector<Client*> clients;
 
 	static Socket open_connection(int);
 	Socket accept_connection(Socket);

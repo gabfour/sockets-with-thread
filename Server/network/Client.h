@@ -17,7 +17,7 @@
 #include <arpa/inet.h>
 #endif
 #include <thread>
-#include "../game/Joueur.h"
+#include "../game/Player.h"
 #include "../game/Game.h"
 #include "ThreadedSocket.h"
 
@@ -31,8 +31,8 @@
 class Client : public ThreadedSocket
 {
 private:
-	Joueur* joueur;
 	Game* game;
+	Player* joueur;
 protected:
 	int id;
 	char* buffer;

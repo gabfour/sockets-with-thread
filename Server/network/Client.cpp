@@ -22,8 +22,10 @@
 #include "Client.h"
 #include "../utils/Output.h"
 
-Client::Client(int id, Socket socket, Server& server) : ThreadedSocket(socket, false, MAXDATASIZE), id(id), server(server)
+Client::Client(int id, Socket socket, Server& server, Game* game) : ThreadedSocket(socket, false, MAXDATASIZE), id(id), server(server), game(game)
 {
+	joueur = new Player(this);
+	game->addJoueur(joueur);
 	buffer = new char[MAXDATASIZE];
 
 	char numstr[21]; // enough to hold all numbers up to 64-bits
@@ -118,13 +120,15 @@ void Client::execute_thread()
 			time(&time_value);
 			time_info = localtime(&time_value);
 
-			// Traitement du message reçu
+			// Traitement du message reÃ§u
 			if (strcmp(buffer, "DATE") == 0)
 				strftime(buffer, MAXDATASIZE, "%e/%m/%Y", time_info);
 			else if (strcmp(buffer, "DAY") == 0)
 				strftime(buffer, MAXDATASIZE, "%A", time_info);
 			else if (strcmp(buffer, "MONTH") == 0)
 				strftime(buffer, MAXDATASIZE, "%B", time_info);
+			else if (strcmp(buffer, "READY") == 0)
+				game->setJoueurReady();
 			else
 				sprintf(buffer, "%s is not recognized as a valid command", buffer);
 

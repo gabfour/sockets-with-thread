@@ -1,17 +1,17 @@
 #pragma once
 #include <list>
-class Joueur;
+class Player;
 
 class Game {
 
 private:
-	std::list<Joueur*> Joueurs;
+	std::list<Player*> Joueurs;
 	int nbTour;
 	int nbJoueurReady;
 
 	void startGame();
 public:
 	Game();
-	void addJoueur(Joueur *newJoueur);
+	void addJoueur(Player *newJoueur);
 	void setJoueurReady();
 };
