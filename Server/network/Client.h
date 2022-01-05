@@ -42,7 +42,7 @@ protected:
 
 	bool send_message(const char*);
 	int recv_message();
-	
+
 
 public:
 	Client(int, Socket, Server&, Game* game);
