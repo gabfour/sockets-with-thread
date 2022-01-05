@@ -6,7 +6,7 @@
 #else
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>	
+#include <unistd.h>
 #include <errno.h>
 #include <string.h>
 #include <sys/types.h>
@@ -41,7 +41,6 @@ Client::~Client()
 	ThreadedSocket::~ThreadedSocket();
 	delete[] buffer;
 	free(output_prefix);
-	delete joueur;
 }
 
 bool Client::send_message(const char* buffer)
@@ -121,7 +120,7 @@ void Client::execute_thread()
 			time(&time_value);
 			time_info = localtime(&time_value);
 
-			// Traitement du message reçu
+			// Traitement du message reÃ§u
 			if (strcmp(buffer, "DATE") == 0)
 				strftime(buffer, MAXDATASIZE, "%e/%m/%Y", time_info);
 			else if (strcmp(buffer, "DAY") == 0)

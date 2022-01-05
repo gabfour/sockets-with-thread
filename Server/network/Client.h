@@ -45,7 +45,7 @@ protected:
 
 
 public:
-	Client(int, Socket, Server&, Game* game);
+	Client(int, Socket, Server&);
 	~Client();
 
 	void end_thread();
