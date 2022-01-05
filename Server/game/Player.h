@@ -3,7 +3,7 @@
 #include "Carte.h"
 class Client;
 
-class Joueur {
+class Player {
 
 private:
 	Client* client;
@@ -17,7 +17,7 @@ private:
 	void setCarteJoueur();
 
 public:
-	Joueur(Client* client);
+	Player(Client* client);
 	int getPointJoueur();
 	std::list<Carte> getCarteJoueur();
 };

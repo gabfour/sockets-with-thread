@@ -29,7 +29,6 @@
 class ThreadedSocket
 {
 protected:
-	Game* game;
 	char* output_prefix;
 	const int MAXDATASIZE;
 	bool init_winsocks;
@@ -43,7 +42,7 @@ protected:
 
 
 public:
-	ThreadedSocket(Socket, bool, const int,Game*);
+	ThreadedSocket(Socket, bool, const int);
 	~ThreadedSocket();
 
 	void start_thread();

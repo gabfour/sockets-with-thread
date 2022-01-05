@@ -22,9 +22,9 @@
 #include "Client.h"
 #include "../utils/Output.h"
 
-Client::Client(int id, Socket socket, Server& server, Game* game) : ThreadedSocket(socket, false, MAXDATASIZE,game), id(id), server(server)
+Client::Client(int id, Socket socket, Server& server, Game* game) : ThreadedSocket(socket, false, MAXDATASIZE), id(id), server(server), game(game)
 {
-	joueur = new Joueur(this);
+	joueur = new Player(this);
 	game->addJoueur(joueur);
 	buffer = new char[MAXDATASIZE];
 
@@ -128,7 +128,6 @@ void Client::execute_thread()
 				strftime(buffer, MAXDATASIZE, "%A", time_info);
 			else if (strcmp(buffer, "MONTH") == 0)
 				strftime(buffer, MAXDATASIZE, "%B", time_info);
-
 			else if (strcmp(buffer, "READY") == 0)
 				game->setJoueurReady();
 			else
