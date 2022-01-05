@@ -20,8 +20,9 @@
 #include <thread>
 #include "ThreadedSocket.h"
 #include "../utils/Output.h"
+#include "../game/Game.h"
 
-ThreadedSocket::ThreadedSocket(Socket socket, bool init_winsocks, const int MAXDATASIZE) : socket_(socket), init_winsocks(init_winsocks), MAXDATASIZE(MAXDATASIZE), is_alive(true), output_prefix(NULL)
+ThreadedSocket::ThreadedSocket(Socket socket, bool init_winsocks, const int MAXDATASIZE,Game *game) : socket_(socket), init_winsocks(init_winsocks), MAXDATASIZE(MAXDATASIZE), is_alive(true), output_prefix(NULL), game(game)
 {
 }
 

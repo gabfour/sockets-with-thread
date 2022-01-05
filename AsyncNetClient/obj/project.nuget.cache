@@ -1,13 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ajhd6cJ36M5dmJadLzQpumse+++WDu2+cE1xNI/LqDJ+CZKtES9uWBnfvhFyO9+ZQdfaUh2zEKIAB3YGo1WTkg==",
+  "dgSpecHash": "/kRxmgh84gUkfgQdu+DDyn5d3GQDY7qp+bQlAMa/v5INpNFe485I5m7Aj8RNHO6nPK9neZEnKwK8Xe0DHEvlFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\AsyncNetClient\\AsyncNetClient.csproj",
+  "projectFilePath": "C:\\Users\\fabie\\Desktop\\sockets-with-thread\\AsyncNetClient\\AsyncNetClient.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\fabie\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
   ],
   "logs": []
 }
