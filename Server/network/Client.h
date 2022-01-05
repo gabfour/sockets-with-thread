@@ -48,9 +48,7 @@ public:
 	Client(int, Socket, Server&);
 	~Client();
 
-	void start_thread();
 	void end_thread();
-	void join_thread();
 	const int get_id() const;
 };
 
