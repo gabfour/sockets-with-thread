@@ -14,7 +14,7 @@ Server* Server::create_server(int port) {
     return new Server(connection_socket);
 }
 
-Server::Server(Socket socket) : ThreadedSocket(socket, true, MAXDATASIZE), is_running(false) {
+Server::Server(Socket socket) : ThreadedSocket(socket, true, MAXDATASIZE,game), is_running(false) {
     std::string prefix = "[SERVER] ";
     output_prefix = (char*)malloc(strlen(prefix.c_str()) + 1);
     if (!output_prefix) return;
@@ -43,7 +43,7 @@ void Server::execute_thread() {
             continue;
 
         // Démarrage du thread dédié au client
-        auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this));
+        auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this, game));
         client->start_thread();
         clients.push_back(std::move(client));
         Output::GetInstance()->print(output_prefix, "Number of clients ", clients.size(), "\n");
