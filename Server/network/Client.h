@@ -31,8 +31,8 @@
 class Client : public ThreadedSocket
 {
 private:
-	Joueur *joueur;
-	Game *game;
+	Joueur* joueur;
+	Game* game;
 protected:
 	int id;
 	char* buffer;
@@ -45,7 +45,7 @@ protected:
 
 
 public:
-	Client(int, Socket, Server&, Game* game);
+	Client(int, Socket, Server&);
 	~Client();
 
 	void start_thread();

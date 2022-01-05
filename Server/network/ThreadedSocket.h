@@ -21,7 +21,6 @@
 #include <thread>
 #include "../utils/Output.h"
 #include "CrossPlatform.h"
-#include "../game/Game.h"
 
 #ifndef THREADED_SOCKET_H
 #define THREADED_SOCKET_H
@@ -29,7 +28,6 @@
 class ThreadedSocket
 {
 protected:
-	Game* game;
 	char* output_prefix;
 	const int MAXDATASIZE;
 	bool init_winsocks;
@@ -43,7 +41,7 @@ protected:
 
 
 public:
-	ThreadedSocket(Socket, bool, const int,Game*);
+	ThreadedSocket(Socket, bool, const int);
 	~ThreadedSocket();
 
 	void start_thread();
