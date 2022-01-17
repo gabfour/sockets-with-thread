@@ -21,7 +21,14 @@
         </Grid.RowDefinitions>
         
         <TextBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Logs, FallbackValue='Logs'}" VerticalAlignment="Stretch" IsReadOnly="True"/>
-        <Button Grid.Column="1" Grid.Row="0" Content="Disconnect" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding OnDisconnectClickedCommand}"/>
+        <Grid Grid.Column="1" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Button  Grid.Row="0" Content="Disconnect" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding OnDisconnectClickedCommand}"/>
+            <Label Grid.Row="1" HorizontalAlignment="Left" Content="{Binding Username, FallbackValue='Username'}"/>
+        </Grid>
         <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Command, FallbackValue='Command'}"/>
         <Button Grid.Column="1" Grid.Row="1" Content="OK" Command="{Binding OnCommandSendClickedCommand}"/>
     </Grid>

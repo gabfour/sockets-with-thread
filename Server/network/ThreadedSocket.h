@@ -20,7 +20,7 @@
 
 #include <thread>
 #include "../utils/Output.h"
-#include "CrossPlatform.h"
+#include "../utils/CrossPlatform.h"
 
 #ifndef THREADED_SOCKET_H
 #define THREADED_SOCKET_H

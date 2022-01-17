@@ -1,5 +1,4 @@
-﻿using Client.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,7 +15,10 @@ namespace Client
     {
         private void Application_Exit(object sender, ExitEventArgs e)
         {
-            ClientService.Instance.StopListening();
+            try
+            {
+                Network.Client.Instance.StopListening();
+            }catch  { }
         }
     }
 }

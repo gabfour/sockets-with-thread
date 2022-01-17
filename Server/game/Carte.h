@@ -3,14 +3,10 @@
 class Carte {
 
 private :
-	int val;
-	int point;
-	void setPoint(int newPoint);
-	void setVal(int newVal);
-
-	friend class Deck;
+	int penaltyPoint;
+	int value;
 public :
-
-	int getPointCarte();
-	int getValCarte();
+	Carte(int, int);
+	int getPenaltyPoint();
+	int getValue();
 };

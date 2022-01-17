@@ -9,6 +9,5 @@ namespace Client.Network.MessageModels
     public class LoginMessageModelOutput : MessageModelDefault
     {
         public string username { get; set; }
-        public string password { get; set; }
     }
 }

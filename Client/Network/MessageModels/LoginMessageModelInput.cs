@@ -8,6 +8,6 @@ namespace Client.Network.MessageModels
 {
     public class LoginMessageModelInput : MessageModelDefault
     {
-        public string message { get; set; }
+        public string username { get; set; }
     }
 }

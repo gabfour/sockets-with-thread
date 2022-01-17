@@ -37,6 +37,12 @@
     <Filter Include="Header Files\network\messages">
       <UniqueIdentifier>{392cb816-317d-479a-bea5-a383ad7b8f2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\services">
+      <UniqueIdentifier>{4c25cf05-8cda-4e1e-9ba6-5ac992d244c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\services">
+      <UniqueIdentifier>{4eb27127-aa19-43c6-a151-994b78b72df6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -78,15 +84,24 @@
     <ClCompile Include="network\messages\LoginMessage.cpp">
       <Filter>Source Files\network\messages</Filter>
     </ClCompile>
+    <ClCompile Include="services\CardService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="services\GameService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="services\JoueurService.cpp">
+      <Filter>Source Files\services</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\Utils.cpp">
+      <Filter>Source Files\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="network\ThreadedSocket.h">
       <Filter>Header Files\network</Filter>
     </ClInclude>
     <ClInclude Include="network\ServerClient.h">
-      <Filter>Header Files\network</Filter>
-    </ClInclude>
-    <ClInclude Include="network\CrossPlatform.h">
       <Filter>Header Files\network</Filter>
     </ClInclude>
     <ClInclude Include="network\Config.h">
@@ -124,6 +139,24 @@
     </ClInclude>
     <ClInclude Include="network\messages\LoginMessage.h">
       <Filter>Header Files\network\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="services\CardService.h">
+      <Filter>Header Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="GameConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="services\GameService.h">
+      <Filter>Header Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="services\JoueurService.h">
+      <Filter>Header Files\services</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\Utils.h">
+      <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\CrossPlatform.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

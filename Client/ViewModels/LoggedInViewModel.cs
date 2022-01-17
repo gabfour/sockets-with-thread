@@ -1,5 +1,4 @@
-﻿using Client.Services;
-using Client.Utils;
+﻿using Client.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +22,11 @@ namespace Client.ViewModels
                 _logs = value;
                 NotifyPropertyChanged();
             }
+        }
+
+        public string Username
+        {
+            get => Network.Client.Instance.Joueur.Username;
         }
 
         private string _command = string.Empty;
@@ -67,29 +71,29 @@ namespace Client.ViewModels
 
         public void OnDisconnectClicked()
         {
-            if (ClientService.Instance.IsConnected)
+            if (Network.Client.Instance.IsConnected)
             {
-                ClientService.Instance.Client.CloseConnection();
+                Network.Client.Instance.CloseConnection();
             }
             Output.OutputEventHandler -= HandlerLogs;
-            ClientService.Instance.StopListening();
+            Network.Client.Instance.StopListening();
             Application.Current?.Dispatcher.Invoke(new Action(() => { _page.NavigationService.GoBack(); }));
         }
         
         public void OnCommandSendClicked()
         {
-            if (!ClientService.Instance.IsConnected)
+            if (!Network.Client.Instance.IsConnected)
             {
                 Output.LogError(TAG, "Client is disconnected");
                 return;
             }
-            ClientService.Instance.Client.SendMessage(Command).ContinueWith(x =>
-            {
-                if (!x.Result)
-                {
-                    Output.LogError(TAG, "Error while sending message");
-                }
-            });
+            //ClientService.Instance.Client.SendMessage(Command).ContinueWith(x =>
+            //{
+            //    if (!x.Result)
+            //    {
+            //        Output.LogError(TAG, "Error while sending message");
+            //    }
+            //});
             Command = string.Empty;
         }
     }

@@ -1,4 +1,5 @@
-﻿using Client.Utils;
+﻿using Client.Network.MessageModels;
+using Client.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -53,7 +54,7 @@ namespace Client.Network.Messages
             Json = json;
         }
 
-        public abstract object? Deserialized();
-        public abstract string Serialized();
+        public abstract MessageModelDefault? Deserialized();
+        public abstract MessageModelDefault Serialized();
     }
 }

@@ -1,12 +1,13 @@
 #ifndef SERVER_H_
 #define SERVER_H_
 
-#include "CrossPlatform.h"
+#include "../utils/CrossPlatform.h"
 
 #include <iostream>
 #include <thread>
 #include <mutex>
 #include <cstdarg>
+#include <list>
 
 
 #include "../utils/Semaphore.h"
@@ -27,7 +28,7 @@ public:
 	void start();
 	void stop();
 
-	void client_disconnteced(const Client& client);
+	void client_disconnected(Client& client);
 
 	bool get_is_running();
 private:
@@ -35,7 +36,7 @@ private:
 
 	bool is_running;
 
-	std::vector<std::unique_ptr<Client>> clients;
+	std::list<std::unique_ptr<Client>> clients;
 
 	static Socket open_connection(int);
 	Socket accept_connection(Socket);

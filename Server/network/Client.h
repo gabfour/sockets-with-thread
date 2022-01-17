@@ -8,8 +8,10 @@
 #include <nlohmann/json.hpp>
 #include "../game/Joueur.h"
 #include "../game/Game.h"
+class DefaultMessage;
+#include "messages/DefaultMessage.h"
 
-#include "CrossPlatform.h"
+#include "../utils/CrossPlatform.h"
 #include "ThreadedSocket.h"
 #include "ServerClient.h"
 #include "Server.h"
@@ -17,8 +19,8 @@
 class Client : public ThreadedSocket
 {
 private:
-	Joueur* joueur;
-	Game* game;
+	Joueur &joueur;
+	//Game &game;
 protected:
 	int id;
 	char* buffer;
@@ -30,14 +32,15 @@ protected:
 
 
 public:
-	Client(int, Socket, Server&);
+	Client(int, Socket, Server&, Joueur &);
 	~Client();
 
 	void end_thread();
 	const int get_id() const;
+	Joueur &get_joueur();
 
 
-	bool send_message(const nlohmann::json &json);
+	bool send_message(DefaultMessage &);
 };
 
 #endif

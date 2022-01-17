@@ -30,10 +30,15 @@
     <ClCompile Include="network\messages\LoginMessage.cpp" />
     <ClCompile Include="network\Server.cpp" />
     <ClCompile Include="network\ThreadedSocket.cpp" />
+    <ClCompile Include="services\CardService.cpp" />
+    <ClCompile Include="services\GameService.cpp" />
+    <ClCompile Include="services\JoueurService.cpp" />
     <ClCompile Include="utils\Ouput.cpp" />
     <ClCompile Include="utils\Semaphore.cpp" />
+    <ClCompile Include="utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GameConfig.h" />
     <ClInclude Include="game\Carte.h" />
     <ClInclude Include="game\Deck.h" />
     <ClInclude Include="game\Game.h" />
@@ -41,14 +46,18 @@
     <ClInclude Include="game\Plateau.h" />
     <ClInclude Include="network\Client.h" />
     <ClInclude Include="network\Config.h" />
-    <ClInclude Include="network\CrossPlatform.h" />
     <ClInclude Include="network\messages\DefaultMessage.h" />
     <ClInclude Include="network\messages\LoginMessage.h" />
     <ClInclude Include="network\Server.h" />
     <ClInclude Include="network\ServerClient.h" />
     <ClInclude Include="network\ThreadedSocket.h" />
+    <ClInclude Include="services\CardService.h" />
+    <ClInclude Include="services\GameService.h" />
+    <ClInclude Include="services\JoueurService.h" />
+    <ClInclude Include="utils\CrossPlatform.h" />
     <ClInclude Include="utils\Output.h" />
     <ClInclude Include="utils\Semaphore.h" />
+    <ClInclude Include="utils\Utils.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

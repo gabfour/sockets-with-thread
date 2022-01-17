@@ -13,6 +13,8 @@ public:
 	void deserialized() override;
 	nlohmann::json serialized() override;
 private:
+	const char *TAG = "[LoginMessage] ";
+
 	std::string response_message;
 };
 

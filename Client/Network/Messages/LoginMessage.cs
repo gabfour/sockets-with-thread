@@ -1,5 +1,4 @@
 ﻿using Client.Network.MessageModels;
-using Client.Services;
 using Client.Utils;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,22 +17,21 @@ namespace Client.Network.Messages
         public const int ID = 0;
 
         private string Username { get; set; } = string.Empty;
-        private string Password { get; set; } = string.Empty;
 
-        public LoginMessage(Client client, JObject json) : base(client, ID, json)
+        public LoginMessage(Client client, JObject? json = null) : base(client, ID, json)
         {
         }
-        public static void SendLoginMessage(string username, string password)
+        public static void SendLoginMessage(string username)
         {
-            var client = ClientService.Instance.Client;
-            var result = new LoginMessage(client, new JObject());
+            var client = Client.Instance;
+            var result = new LoginMessage(client)
+            {
+                Username = username
+            };
 
-            result.Username = username;
-            result.Password = password;
-
-            client.SendMessage(result.Serialized());
+            client.SendMessage(result);
         }
-        public override object? Deserialized()
+        public override MessageModelDefault? Deserialized()
         {
             LoginMessageModelInput? model = null;
             try
@@ -41,28 +39,29 @@ namespace Client.Network.Messages
                 model = Json.ToObject<LoginMessageModelInput>();
             }
             catch
-            { 
+            {
+                Output.LogError(TAG, "Error while parsing json");
+                throw new Exception("Error while parsing json");
             }
             if (model == null)
             {
-                Output.LogError(TAG, "Error while parsing json");
-                return null;
+                throw new Exception("No error while parsing json");
             }
-            Output.Log(TAG, $"Reponse: {model.message}");
+            Output.Log(TAG, $"<- Reponse: {model.username}");
+
+            Client.Joueur.Username = model.username;
 
             return model;
             
         }
 
-        public override string Serialized()
+        public override MessageModelDefault Serialized()
         {
             var model = new LoginMessageModelOutput()
             {
-                id = ID,
                 username = Username,
-                password = Password
             };
-            return JsonConvert.SerializeObject(model);
+            return model;
         }
     }
 }

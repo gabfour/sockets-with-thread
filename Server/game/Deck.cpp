@@ -12,7 +12,7 @@ Deck::~Deck() {}
 
 void Deck::startingDeck() {
 
-	for (int i = 1; i < 105; i++) {
+	/*for (int i = 1; i < 105; i++) {
 		Carte carte;
 		carte.setVal(i);
 
@@ -32,7 +32,7 @@ void Deck::startingDeck() {
 			carte.setPoint(1);
 		}
 		deck.push_back(carte);
-	}
+	}*/
 
 }
 
@@ -41,7 +41,7 @@ std::list<Carte> Deck::getDeck() {
 }
 
 void Deck::deleteCard(Carte carte) {
-	deck.remove(carte);
+	//deck.remove(carte);
 }
 
 

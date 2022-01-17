@@ -1,6 +1,5 @@
 ﻿using Client.Network.MessageModels;
 using Client.Network.Messages;
-using Client.Services;
 using Client.Utils;
 using Client.Views;
 using System;
@@ -22,7 +21,12 @@ namespace Client.ViewModels
 
         public LoggedOutViewModel(Page page) : base(page)
         {
-            ClientService.Instance.AddListener(LoginMessage.ID, HandleLoginResponse);
+            Network.Client.Instance.AddListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
+        }
+
+        ~LoggedOutViewModel()
+        {
+            Network.Client.Instance.RemoveListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
         }
 
         private void HandleLoginResponse(object? modelObj)
@@ -30,11 +34,9 @@ namespace Client.ViewModels
             if (modelObj == null) return;
             if (modelObj is LoginMessageModelInput)
             {
-                var model = modelObj as LoginMessageModelInput;
-                if (model.message.Contains("success"))
-                {
-                    Application.Current?.Dispatcher.Invoke(new Action(() => { _page.NavigationService.Navigate(new LoggedInView()); }));
-                }
+                Application.Current?.Dispatcher.Invoke(new Action(() => {
+                    _page.NavigationService.Navigate(new LoggedInView()); 
+                }));
             }
         }
 
@@ -55,6 +57,18 @@ namespace Client.ViewModels
             get => _port; set
             {
                 _port = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
+
+        public string _username = "Joueur";
+        public string Username
+        {
+            get => _username; set
+            {
+                _username = value;
                 NotifyPropertyChanged();
             }
         }
@@ -88,17 +102,19 @@ namespace Client.ViewModels
                 return;
             }
             IsConnecting = true;
-            ClientService.Instance.TryToConnectToTheServer(_host, port).ContinueWith(x =>
+            Network.Client.ConnectToServer(_host, port).ContinueWith(x =>
             {
                 IsConnecting = false;
-                if (!x.Result)
+                if (x.Result != null)
                 {
                     Output.LogError(TAG, "Connection to the server failed");
                     return;
                 }
 
-                ClientService.Instance.StartListening();
-                LoginMessage.SendLoginMessage("admin", "addmin");
+                if (Network.Client.Instance.StartListening())
+                {
+                    LoginMessage.SendLoginMessage(_username);
+                }
             });
         }
     }
