@@ -15,7 +15,7 @@ public:
 	void generate_game_cards();
 	void randomize_game_cards();
 
-	void give_cards_to_player(Joueur &player);
+	std::list<std::unique_ptr<Carte>> draw_cards(int nbr_cards = 1);
 
 	void dispay_cards(std::list<std::unique_ptr<Carte>>& cards);
 	void dispay_card(Carte& card);

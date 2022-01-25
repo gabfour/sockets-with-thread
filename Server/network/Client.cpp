@@ -32,7 +32,7 @@ bool Client::send_message(DefaultMessage &message)
 	if (json.is_null())
 		return false;
 	json["id"] = message.get_id();
-	std::string json_str = json.dump();
+	std::string json_str = json.dump() + "\n";
 	const char* buffer = json_str.c_str();
 	if (send(socket_, buffer, (int)strlen(buffer), 0) == -1) {
 		Output::GetInstance()->print_error(output_prefix, "Error while sending message to client ");

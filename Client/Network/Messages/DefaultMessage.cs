@@ -36,7 +36,10 @@ namespace Client.Network.Messages
             {
                 case LoginMessage.ID:
                     result = new LoginMessage(client, jsonObject);
-                break;
+                    break;
+                case PlayerCardsMessage.ID:
+                    result = new PlayerCardsMessage(client, jsonObject);
+                    break;
                 default:
                     Output.LogError(TAG, "Message not found");
                     break;

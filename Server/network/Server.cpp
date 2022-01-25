@@ -47,20 +47,26 @@ void Server::execute_thread() {
             continue;
 
         // Démarrage du thread dédié au client
-        auto joueur = std::unique_ptr<Joueur>(new Joueur());
-        auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this, *joueur));
+        auto player = std::unique_ptr<Joueur>(new Joueur());
+        auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this, *player));
 
-        CardService::get_instance().give_cards_to_player(*joueur);
-        JoueurService::get_instance().add_joueur(std::move(joueur));
+        auto player_cards = CardService::get_instance().draw_cards(10);
+        Output::GetInstance()->print_debug(output_prefix, "Player ",clients.size(), " cards:\n");
+        CardService::get_instance().dispay_cards(player_cards);
+        player->set_cards(player_cards);
+
+        JoueurService::get_instance().add_joueur(std::move(player));
 
         client->start_thread();
 
         clients.push_back(std::move(client));
 
         Output::GetInstance()->print_debug(output_prefix, "Number of clients ", clients.size(), "\n");
+        Output::GetInstance()->print_debug(output_prefix, "Cards in the stack left:\n");
+        CardService::get_instance().dispay_cards(CardService::get_instance().get_game_cards());
     }
     Output::GetInstance()->print_debug(output_prefix, "Server is not taking anymore client\n");
-    while (is_running && is_alive && JoueurService::get_instance().get_nbr_players() == 4) {
+    while (is_running && is_alive && JoueurService::get_instance().get_nbr_players() >= 4) {
         sleep(1);
         continue;
     }

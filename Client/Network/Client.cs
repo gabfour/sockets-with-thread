@@ -20,13 +20,13 @@ namespace Client.Network
         #region "Singleton"
 
 
-        private static Client _instance;
-        public static Client Instance
+        private static Client? _instance;
+        public static Client? Instance
         {
             get
             {
                 if (_instance == null)
-                    throw new Exception("Singleton not initialized, please use Client.ConnectToServer");
+                    return null;
                 return _instance;
             }
         }
@@ -257,15 +257,18 @@ namespace Client.Network
                 {
                     if (!IsConnected) continue;
                     var buffer = WaitReceiveMessage();
-                    if (buffer == null) continue;
-                    if (buffer.Length == 0) break;
-                    Output.Log(TAG, $"<- Message received : {buffer}");
-                    var message = DefaultMessage.HandleMessage(this, buffer);
-                    if (message == null) continue;
-                    var model = message.Deserialized();
-                    if (_onMessageReceived.ContainsKey(message.Id))
-                    {
-                        _onMessageReceived[message.Id].ForEach(x => Task.Factory.StartNew(() => x.Invoke(model)));
+                    if (buffer == null) break;
+                    if (buffer.Length == 0) continue;
+                    foreach (var packet in buffer.Split("\n")) {
+                        if (packet.Length == 0) continue;
+                        Output.Log(TAG, $"<- Message received : {packet}");
+                        var message = DefaultMessage.HandleMessage(this, packet);
+                        if (message == null) continue;
+                        var model = message.Deserialized();
+                        if (_onMessageReceived.ContainsKey(message.Id))
+                        {
+                            _onMessageReceived[message.Id].ForEach(x => Task.Factory.StartNew(() => x.Invoke(model)));
+                        }
                     }
                 }
                 _running = false;

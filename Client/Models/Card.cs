@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Client.Models
 {
-    public class Joueur
+    public class Card
     {
-        public string Username { get; set; }
-        public List<Card> Cards { get; set; }
+        public int Value { get; set; }
+        public int PenaltyPoint { get; set; }
     }
 }

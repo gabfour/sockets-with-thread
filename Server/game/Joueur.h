@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <memory>
 #include <string>
 
 #include "Carte.h"
@@ -12,16 +13,16 @@ private:
 
 	std::string name;
 	int point;
-	std::list<Carte> cartes;
+	std::list<std::unique_ptr<Carte>> cards;
 
-	void setPointJoueur(int newPoint);
-	void setCarteJoueur();
 public:
 	Joueur();
 
+	void setPointJoueur(int newPoint);
+	void set_cards(std::list<std::unique_ptr<Carte>> &cards);
 	void set_name(const std::string name);
 
 	const std::string& get_name();
 	int getPointJoueur();
-	std::list<Carte> getCarteJoueur();
+	std::list<std::unique_ptr<Carte>> &get_cards();
 };

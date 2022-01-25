@@ -28,6 +28,7 @@
     <ClCompile Include="network\Client.cpp" />
     <ClCompile Include="network\messages\DefaultMessage.cpp" />
     <ClCompile Include="network\messages\LoginMessage.cpp" />
+    <ClCompile Include="network\messages\PlayerCardsMessage.cpp" />
     <ClCompile Include="network\Server.cpp" />
     <ClCompile Include="network\ThreadedSocket.cpp" />
     <ClCompile Include="services\CardService.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="network\Config.h" />
     <ClInclude Include="network\messages\DefaultMessage.h" />
     <ClInclude Include="network\messages\LoginMessage.h" />
+    <ClInclude Include="network\messages\PlayerCardsMessage.h" />
     <ClInclude Include="network\Server.h" />
     <ClInclude Include="network\ServerClient.h" />
     <ClInclude Include="network\ThreadedSocket.h" />

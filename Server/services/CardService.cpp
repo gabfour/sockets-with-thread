@@ -54,8 +54,15 @@ void CardService::randomize_game_cards() {
 	}
 }
 
-void CardService::give_cards_to_player(Joueur& player) {
+std::list<std::unique_ptr<Carte>> CardService::draw_cards(int nbr_cards) {
+	std::list<std::unique_ptr<Carte>> result;
+	for (int i = 0; i < nbr_cards && gameCards.size() > 0; i++) {
+		auto card = std::move(gameCards.front());
+		gameCards.pop_front();
 
+		result.push_back(std::move(card));
+	}
+	return result;
 }
 
 std::list<std::unique_ptr<Carte>>& CardService::get_game_cards() {

@@ -21,12 +21,11 @@ namespace Client.ViewModels
 
         public LoggedOutViewModel(Page page) : base(page)
         {
-            Network.Client.Instance.AddListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
         }
 
         ~LoggedOutViewModel()
         {
-            Network.Client.Instance.RemoveListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
+            Network.Client.Instance?.RemoveListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
         }
 
         private void HandleLoginResponse(object? modelObj)
@@ -74,6 +73,7 @@ namespace Client.ViewModels
         }
 
         private bool _isConnecting = false;
+
         public bool IsConnecting
         {
             get => _isConnecting;
@@ -105,11 +105,13 @@ namespace Client.ViewModels
             Network.Client.ConnectToServer(_host, port).ContinueWith(x =>
             {
                 IsConnecting = false;
-                if (x.Result != null)
+                if (x.Result == null)
                 {
                     Output.LogError(TAG, "Connection to the server failed");
                     return;
                 }
+
+                Network.Client.Instance.AddListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
 
                 if (Network.Client.Instance.StartListening())
                 {

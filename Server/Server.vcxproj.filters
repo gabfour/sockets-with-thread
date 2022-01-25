@@ -96,6 +96,9 @@
     <ClCompile Include="utils\Utils.cpp">
       <Filter>Source Files\utils</Filter>
     </ClCompile>
+    <ClCompile Include="network\messages\PlayerCardsMessage.cpp">
+      <Filter>Source Files\network\messages</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="network\ThreadedSocket.h">
@@ -157,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="utils\CrossPlatform.h">
       <Filter>Header Files\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="network\messages\PlayerCardsMessage.h">
+      <Filter>Header Files\network\messages</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

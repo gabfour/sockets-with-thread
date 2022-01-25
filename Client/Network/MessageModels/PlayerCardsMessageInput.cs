@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Client.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client.Models
+namespace Client.Network.MessageModels
 {
-    public class Joueur
+    public class PlayerCardsMessageInput : MessageModelDefault
     {
-        public string Username { get; set; }
         public List<Card> Cards { get; set; }
     }
 }

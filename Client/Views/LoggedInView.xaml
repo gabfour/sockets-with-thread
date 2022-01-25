@@ -4,32 +4,25 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Client.Views"
+      xmlns:component="clr-namespace:Client.Components"
       mc:Ignorable="d" 
       WindowHeight="400" WindowWidth="600"
       d:DesignHeight="400" d:DesignWidth="600"
       Title="LoggedInView" Background="White">
-      
     <Grid>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
-        <TextBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Logs, FallbackValue='Logs'}" VerticalAlignment="Stretch" IsReadOnly="True"/>
-        <Grid Grid.Column="1" Grid.Row="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Button  Grid.Row="0" Content="Disconnect" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding OnDisconnectClickedCommand}"/>
-            <Label Grid.Row="1" HorizontalAlignment="Left" Content="{Binding Username, FallbackValue='Username'}"/>
+        <Grid Grid.Row="0">
+            <component:CardsHolderComponent Cards="{Binding Cards}"/>
         </Grid>
-        <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Command, FallbackValue='Command'}"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="OK" Command="{Binding OnCommandSendClickedCommand}"/>
+        <Grid Grid.Row="1">
+
+        </Grid>
+        <Grid Grid.Row="2">
+
+        </Grid>
     </Grid>
 </Page>

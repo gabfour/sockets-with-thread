@@ -1,5 +1,7 @@
 #include "LoginMessage.h"
 #include "../../utils/Output.h"
+#include "../../game/Joueur.h"
+#include "PlayerCardsMessage.h"
 
 LoginMessage::LoginMessage(Client &client, nlohmann::json json) : DefaultMessage(client, ID, json) {
 
@@ -19,6 +21,7 @@ void LoginMessage::deserialized() {
 	client.get_joueur().set_name(username);
 	response_message = username;
 	client.send_message(*this);
+	PlayerCardsMessage::send_message(client, client.get_joueur().get_cards());
 }
 
 nlohmann::json LoginMessage::serialized() {

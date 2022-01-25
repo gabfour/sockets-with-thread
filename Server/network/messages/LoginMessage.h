@@ -1,9 +1,10 @@
-#ifndef PROFILEMESSAGE_H_
-#define PROFILEMESSAGE_H_
+#ifndef LOGIN_MESSAGE_H_
+#define LOGIN_MESSAGE_H_
 
-#include "../Client.h"
 #include <nlohmann/json.hpp>
+
 #include "DefaultMessage.h"
+#include "../Client.h"
 
 class LoginMessage : public DefaultMessage {
 public:
