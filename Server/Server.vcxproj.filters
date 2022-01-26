@@ -66,9 +66,6 @@
     <ClCompile Include="game\Game.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
-    <ClCompile Include="game\Joueur.cpp">
-      <Filter>Source Files\game</Filter>
-    </ClCompile>
     <ClCompile Include="game\Plateau.cpp">
       <Filter>Source Files\game</Filter>
     </ClCompile>
@@ -99,11 +96,11 @@
     <ClCompile Include="network\messages\PlayerCardsMessage.cpp">
       <Filter>Source Files\network\messages</Filter>
     </ClCompile>
+    <ClCompile Include="game\Player.cpp">
+      <Filter>Source Files\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="network\ThreadedSocket.h">
-      <Filter>Header Files\network</Filter>
-    </ClInclude>
     <ClInclude Include="network\ServerClient.h">
       <Filter>Header Files\network</Filter>
     </ClInclude>
@@ -131,7 +128,7 @@
     <ClInclude Include="game\Game.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
-    <ClInclude Include="game\Joueur.h">
+    <ClInclude Include="game\Player.h">
       <Filter>Header Files\game</Filter>
     </ClInclude>
     <ClInclude Include="game\Plateau.h">
@@ -163,6 +160,9 @@
     </ClInclude>
     <ClInclude Include="network\messages\PlayerCardsMessage.h">
       <Filter>Header Files\network\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="network\ThreadedSocket.h">
+      <Filter>Header Files\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
