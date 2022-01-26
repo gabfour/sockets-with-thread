@@ -5,9 +5,11 @@ using namespace std;
 
 Game::Game() {
 	nbJoueurReady = 0;
+	nbTour = 0;
 }
 
-void Game::addJoueur(Joueur *newJoueur) {
+void Game::addJoueur(Player *newJoueur) {
+	cout << "ADD JOUEUR" << endl;
 	Joueurs.push_back(newJoueur);
 }
 
