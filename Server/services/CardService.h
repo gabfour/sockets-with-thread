@@ -6,7 +6,7 @@
 #include <string>
 
 #include "../game/Carte.h"
-#include "../game/Joueur.h"
+#include "../game/Player.h"
 
 class CardService {
 public:

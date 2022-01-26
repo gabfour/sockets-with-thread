@@ -1,5 +1,5 @@
 #include "Server.h"
-#include "../services/JoueurService.h"
+#include "../services/PlayerService.h"
 #include "../services/CardService.h"
 
 #include "../utils/Utils.h"
@@ -48,8 +48,7 @@ void Server::execute_thread() {
             continue;
 
         // Démarrage du thread dédié au client
-<<<<<<< HEAD
-        auto player = std::unique_ptr<Joueur>(new Joueur());
+        auto player = std::unique_ptr<Player>(new Player());
         auto client = std::unique_ptr<Client>(new Client(clients.size(), client_socket, *this, *player));
 
         auto player_cards = CardService::get_instance().draw_cards(10);
@@ -57,11 +56,8 @@ void Server::execute_thread() {
         CardService::get_instance().dispay_cards(player_cards);
         player->set_cards(player_cards);
 
-        JoueurService::get_instance().add_joueur(std::move(player));
+        PlayerService::get_instance().add_player(std::move(player));
 
-=======
-        auto client = new Client(clients.size(), client_socket, *this, game);
->>>>>>> 4f943eb901d92a4b0ce4901128631ab040b5d263
         client->start_thread();
 
         clients.push_back(std::move(client));
@@ -71,7 +67,7 @@ void Server::execute_thread() {
         CardService::get_instance().dispay_cards(CardService::get_instance().get_game_cards());
     }
     Output::GetInstance()->print_debug(output_prefix, "Server is not taking anymore client\n");
-    while (is_running && is_alive && JoueurService::get_instance().get_nbr_players() >= 4) {
+    while (is_running && is_alive && PlayerService::get_instance().get_nbr_players() >= 4) {
         sleep(1);
         continue;
     }
@@ -84,7 +80,7 @@ void Server::stop() {
 
 void Server::client_disconnected(Client& client) {
     Output::GetInstance()->print(output_prefix, "Client ", client.get_id(), " is disconntecting\n");
-    JoueurService::get_instance().remove_joueur(client.get_joueur());
+    PlayerService::get_instance().remove_player(client.get_player());
     clients.remove_if([&](const std::unique_ptr<Client>& c) { return &client == c.get(); });
 }
 

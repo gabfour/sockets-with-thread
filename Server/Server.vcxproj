@@ -33,7 +33,7 @@
     <ClCompile Include="network\ThreadedSocket.cpp" />
     <ClCompile Include="services\CardService.cpp" />
     <ClCompile Include="services\GameService.cpp" />
-    <ClCompile Include="services\JoueurService.cpp" />
+    <ClCompile Include="services\PlayerService.cpp" />
     <ClCompile Include="utils\Ouput.cpp" />
     <ClCompile Include="utils\Semaphore.cpp" />
     <ClCompile Include="utils\Utils.cpp" />
@@ -55,7 +55,7 @@
     <ClInclude Include="network\ThreadedSocket.h" />
     <ClInclude Include="services\CardService.h" />
     <ClInclude Include="services\GameService.h" />
-    <ClInclude Include="services\JoueurService.h" />
+    <ClInclude Include="services\PlayerService.h" />
     <ClInclude Include="utils\CrossPlatform.h" />
     <ClInclude Include="utils\Output.h" />
     <ClInclude Include="utils\Semaphore.h" />

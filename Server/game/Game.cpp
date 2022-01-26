@@ -4,28 +4,28 @@
 using namespace std;
 
 Game::Game() {
-	nbJoueurReady = 0;
+	nbPlayerReady = 0;
 	nbTour = 0;
 }
 
-void Game::addJoueur(Player *newJoueur) {
+void Game::addPlayer(Player *newPlayer) {
 	cout << "ADD JOUEUR" << endl;
-	Joueurs.push_back(newJoueur);
+	Players.push_back(newPlayer);
 }
 
-void Game::setJoueurReady() {
-	++nbJoueurReady;
-	if (Joueurs.size() >= 2 && nbJoueurReady == Joueurs.size()) {
+void Game::setPlayerReady() {
+	++nbPlayerReady;
+	if (Players.size() >= 2 && nbPlayerReady == Players.size()) {
 		startGame();
 	}
 }
 
 void Game::startGame() {
 	cout << "START GAME" << endl;
-	//TODO for sur les joueurs
+	//TODO for sur les players
 	//for de 0 à 10
 	//Creation d'une nouvelle carte d'un nombre aléatoire entre 1 et 104
-	//addNewCarte au joueur actuel
-	//Creation d'une nouvelle boucle for parcours tt les joueurs
-	//Envoie aux joueurs la list carte
+	//addNewCarte au player actuel
+	//Creation d'une nouvelle boucle for parcours tt les players
+	//Envoie aux players la list carte
 }

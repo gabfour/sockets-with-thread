@@ -37,11 +37,7 @@ private:
 
 	bool is_running;
 
-<<<<<<< HEAD
 	std::list<std::unique_ptr<Client>> clients;
-=======
-	std::vector<Client*> clients;
->>>>>>> 4f943eb901d92a4b0ce4901128631ab040b5d263
 
 	static Socket open_connection(int);
 	Socket accept_connection(Socket);
