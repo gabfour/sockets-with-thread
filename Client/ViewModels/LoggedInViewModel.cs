@@ -17,7 +17,7 @@ namespace Client.ViewModels
     {
         private static string TAG = nameof(LoggedInViewModel);
 
-        private List<Card> Cards { get => Network.Client.Instance?.Joueur.Cards ?? new List<Card>(); }
+        public List<Card> Cards { get => Network.Client.Instance?.Joueur.Cards ?? new List<Card>(); }
 
         public LoggedInViewModel(Page page) : base(page)
         {

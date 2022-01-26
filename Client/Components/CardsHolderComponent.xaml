@@ -4,11 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Client.Components"
+          ScrollViewer.VerticalScrollBarVisibility="Disabled"
+          BorderThickness="0"
       mc:Ignorable="d" 
       d:DesignHeight="100" d:DesignWidth="800" ItemsSource="{Binding Cards}">
-    <ListView.View>
-        <GridView>
-            <GridViewColumn Header="Test" DisplayMemberBinding="{Binding Value}"/>
-        </GridView>
-    </ListView.View>
+    <ListView.ItemsPanel>
+        <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"></StackPanel>
+        </ItemsPanelTemplate>
+    </ListView.ItemsPanel>
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <StackPanel Background="Blue" Height="75" Width="50">
+                <TextBlock Text="{Binding Value, FallbackValue='Value'}"/>
+                <TextBlock Text="{Binding PenaltyPoint, FallbackValue='PenaltyPoint'}" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </DataTemplate>
+    </ListView.ItemTemplate>
 </ListView>

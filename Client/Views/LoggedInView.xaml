@@ -6,23 +6,31 @@
       xmlns:local="clr-namespace:Client.Views"
       xmlns:component="clr-namespace:Client.Components"
       mc:Ignorable="d" 
-      WindowHeight="400" WindowWidth="600"
-      d:DesignHeight="400" d:DesignWidth="600"
+      WindowHeight="500" WindowWidth="800"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="LoggedInView" Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <component:CardsHolderComponent Cards="{Binding Cards}"/>
+            <component:EnemyCardsHolderComponent NumberOfCards="{Binding Cards.Count}" HorizontalAlignment="Center" Orientation="Horizontal" />
         </Grid>
         <Grid Grid.Row="1">
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <component:EnemyCardsHolderComponent Grid.Column="0" NumberOfCards="{Binding Cards.Count}" VerticalAlignment="Top" Orientation="Vertical" />
+            <Label Grid.Column="1" HorizontalAlignment="Center" Content="Test"/>
+            <component:EnemyCardsHolderComponent Grid.Column="2" NumberOfCards="{Binding Cards.Count}" VerticalAlignment="Top" Orientation="Vertical" />
+            
         </Grid>
-        <Grid Grid.Row="2">
-
+        <Grid Grid.Row="2" d:Background="Blue">
+            <component:CardsHolderComponent Cards="{Binding Cards}" HorizontalAlignment="Center" />
         </Grid>
     </Grid>
 </Page>
