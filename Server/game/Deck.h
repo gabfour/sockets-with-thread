@@ -11,7 +11,7 @@ public:
 	Deck();
 	~Deck();
 	std::list<Carte> getDeck();
-	void deckDeDepart();
-	void supprCarte(Carte carte);
-	void ajouterCarte(Carte carte);
+	void startingDeck();
+	void deleteCard(Carte carte);
+	void addCard(Carte carte);
 };

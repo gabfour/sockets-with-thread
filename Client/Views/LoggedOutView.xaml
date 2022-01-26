@@ -17,13 +17,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Host Address"/>
         <TextBox Grid.Row="1" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="{Binding Host, FallbackValue='localhost'}" MaxLines="1"/>
         <Label Grid.Row="2" Content="Port"/>
         <TextBox Grid.Row="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Port, FallbackValue='3490'}" MaxLines="1"/>
-        <Button Grid.Row="4" Content="Connect" IsEnabled="{Binding EnableConnectBtn}" Command="{Binding OnConnectClicked}"/>
-        <ProgressBar Grid.Row="5" HorizontalAlignment="Stretch" Height="20" IsIndeterminate="True" Visibility="{Binding ShowProgressBar}" />
+        <Label Grid.Row="4" Content="Pseudonyme"/>
+        <TextBox Grid.Row="5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Username, FallbackValue='Joueur'}" MaxLines="1"/>
+         <Button Grid.Row="6" Content="Connect" IsEnabled="{Binding EnableConnectBtn}" Command="{Binding OnConnectClicked}"/>
+        <ProgressBar Grid.Row="7" HorizontalAlignment="Stretch" Height="20" IsIndeterminate="True" Visibility="{Binding ShowProgressBar}" />
     </Grid>
 
 </Page>

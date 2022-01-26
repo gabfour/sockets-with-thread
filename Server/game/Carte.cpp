@@ -1,20 +1,13 @@
 #include "Carte.h"
 
-void Carte::setPoint(int newPoint)
+Carte::Carte(int value, int penaltyPoint) : value(value), penaltyPoint(penaltyPoint) {
+
+}
+int Carte::getPenaltyPoint()
 {
-	point = newPoint;
+	return penaltyPoint;
 }
 
-void Carte::setVal(int newVal)
-{
-	val = newVal;
-}
-
-int Carte::getPointCarte()
-{
-	return point;
-}
-
-int Carte::getValCarte() {
-	return val;
+int Carte::getValue() {
+	return value;
 }

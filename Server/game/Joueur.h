@@ -1,23 +1,28 @@
 #pragma once
 #include <list>
+#include <memory>
+#include <string>
+
 #include "Carte.h"
 class Client;
 
 class Joueur {
 
 private:
-	Client* client;
-	int id;
-	int point;
-	std::list<Carte> cartes;
+	const char* TAG = "[Joueur] ";
 
-	int getId();
-	void setId(int newId);
-	void setPointJoueur(int newPoint);
-	void setCarteJoueur();
+	std::string name;
+	int point;
+	std::list<std::unique_ptr<Carte>> cards;
 
 public:
-	Joueur(Client* client);
+	Joueur();
+
+	void setPointJoueur(int newPoint);
+	void set_cards(std::list<std::unique_ptr<Carte>> &cards);
+	void set_name(const std::string name);
+
+	const std::string& get_name();
 	int getPointJoueur();
-	std::list<Carte> getCarteJoueur();
+	std::list<std::unique_ptr<Carte>> &get_cards();
 };

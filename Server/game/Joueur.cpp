@@ -1,19 +1,12 @@
 #include "Joueur.h"
-#include <list>
 #include "../network/Client.h"
 
-Joueur::Joueur(Client* client) : client(client) {
-
+Joueur::Joueur() : point(0), cards() {
+	Output::GetInstance()->print(TAG, "New unknown player\n");
 }
 
-int Joueur::getId()
-{
-	return id;
-}
-
-void Joueur::setId(int newId)
-{
-	id = newId;
+void Joueur::set_name(const std::string name) {
+	this->name = name;
 }
 
 void Joueur::setPointJoueur(int newPoint)
@@ -21,18 +14,23 @@ void Joueur::setPointJoueur(int newPoint)
 	point += newPoint;
 }
 
-void Joueur::setCarteJoueur()
-{
-	Carte *carte = new Carte();
+
+void Joueur::set_cards(std::list<std::unique_ptr<Carte>> &cards) {
+	this->cards.clear();
+	for (auto it = cards.begin(); it != cards.end(); it++) {
+		this->cards.push_back(std::move(*it));
+	}
 }
 
-std::list<Carte> Joueur::getCarteJoueur()
-{
-	std::list<Carte> cartes;
-	return cartes;
+const std::string& Joueur::get_name() {
+	return name;
 }
 
 int Joueur::getPointJoueur()
 {
 	return point;
+}
+
+std::list<std::unique_ptr<Carte>>& Joueur::get_cards() {
+	return cards;
 }

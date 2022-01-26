@@ -1,4 +1,5 @@
-﻿using Client.Services;
+﻿using Client.Network.MessageModels;
+using Client.Network.Messages;
 using Client.Utils;
 using Client.Views;
 using System;
@@ -19,7 +20,24 @@ namespace Client.ViewModels
         private static string TAG = "LoggedOutViewModel";
 
         public LoggedOutViewModel(Page page) : base(page)
-        { }
+        {
+        }
+
+        ~LoggedOutViewModel()
+        {
+            Network.Client.Instance?.RemoveListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
+        }
+
+        private void HandleLoginResponse(object? modelObj)
+        {
+            if (modelObj == null) return;
+            if (modelObj is LoginMessageModelInput)
+            {
+                Application.Current?.Dispatcher.Invoke(new Action(() => {
+                    _page.NavigationService.Navigate(new LoggedInView()); 
+                }));
+            }
+        }
 
         public string _host = "localhost";
         public string Host
@@ -42,7 +60,20 @@ namespace Client.ViewModels
             }
         }
 
+
+
+        public string _username = "Joueur";
+        public string Username
+        {
+            get => _username; set
+            {
+                _username = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private bool _isConnecting = false;
+
         public bool IsConnecting
         {
             get => _isConnecting;
@@ -71,16 +102,21 @@ namespace Client.ViewModels
                 return;
             }
             IsConnecting = true;
-            ClientService.Instance.TryToConnectToTheServer(_host, port).ContinueWith(x =>
+            Network.Client.ConnectToServer(_host, port).ContinueWith(x =>
             {
                 IsConnecting = false;
-                if (!x.Result)
+                if (x.Result == null)
                 {
                     Output.LogError(TAG, "Connection to the server failed");
                     return;
                 }
-                Application.Current?.Dispatcher.Invoke(new Action(() => { _page.NavigationService.Navigate(new LoggedInView()); }));
 
+                Network.Client.Instance.AddListenerOnReceived(LoginMessage.ID, HandleLoginResponse);
+
+                if (Network.Client.Instance.StartListening())
+                {
+                    LoginMessage.SendLoginMessage(_username);
+                }
             });
         }
     }
