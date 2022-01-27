@@ -5,13 +5,13 @@ class Player;
 class Game {
 
 private:
-	std::list<Player*> Joueurs;
+	std::list<Player*> Players;
 	int nbTour;
-	int nbJoueurReady;
+	int nbPlayerReady;
 
 	void startGame();
 public:
 	Game();
-	void addJoueur(Player *newJoueur);
-	void setJoueurReady();
+	void addPlayer(Player *newPlayer);
+	void setPlayerReady();
 };

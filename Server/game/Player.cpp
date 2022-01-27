@@ -1,38 +1,36 @@
 #include "Player.h"
-#include <list>
 #include "../network/Client.h"
 
-Player::Player(Client* client) : client(client) {
-
+Player::Player() : point(0), cards() {
+	Output::GetInstance()->print(TAG, "New unknown player\n");
 }
 
-int Player::getId()
-{
-	return id;
+void Player::set_name(const std::string name) {
+	this->name = name;
 }
 
-void Player::setId(int newId)
-{
-	id = newId;
-}
-
-void Player::setPointJoueur(int newPoint)
+void Player::setPointPlayer(int newPoint)
 {
 	point += newPoint;
 }
 
-void Player::setCarteJoueur()
-{
-	Carte *carte = new Carte();
+
+void Player::set_cards(std::list<std::unique_ptr<Carte>>& cards) {
+	this->cards.clear();
+	for (auto it = cards.begin(); it != cards.end(); it++) {
+		this->cards.push_back(std::move(*it));
+	}
 }
 
-std::list<Carte> Player::getCarteJoueur()
-{
-	std::list<Carte> cartes;
-	return cartes;
+const std::string& Player::get_name() {
+	return name;
 }
 
-int Player::getPointJoueur()
+int Player::getPointPlayer()
 {
 	return point;
+}
+
+std::list<std::unique_ptr<Carte>>& Player::get_cards() {
+	return cards;
 }

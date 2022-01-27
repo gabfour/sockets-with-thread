@@ -17,7 +17,7 @@ namespace Client
         {
             try
             {
-                Network.Client.Instance.StopListening();
+                Network.Client.Instance?.StopListening();
             }catch  { }
         }
     }

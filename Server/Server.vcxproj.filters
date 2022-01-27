@@ -87,7 +87,7 @@
     <ClCompile Include="services\GameService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
-    <ClCompile Include="services\JoueurService.cpp">
+    <ClCompile Include="services\PlayerService.cpp">
       <Filter>Source Files\services</Filter>
     </ClCompile>
     <ClCompile Include="utils\Utils.cpp">
@@ -149,7 +149,7 @@
     <ClInclude Include="services\GameService.h">
       <Filter>Header Files\services</Filter>
     </ClInclude>
-    <ClInclude Include="services\JoueurService.h">
+    <ClInclude Include="services\PlayerService.h">
       <Filter>Header Files\services</Filter>
     </ClInclude>
     <ClInclude Include="utils\Utils.h">
