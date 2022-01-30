@@ -25,6 +25,18 @@ namespace Client.ViewModels
             }
         }
 
+
+        private string _json = string.Empty;
+        public string JSonMessage
+        {
+            get => _json;
+            set
+            {
+                _json = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         private string _command = string.Empty;
         public string Command
         {

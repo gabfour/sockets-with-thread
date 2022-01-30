@@ -19,9 +19,31 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        <TextBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding Logs, FallbackValue='Logs'}" VerticalAlignment="Stretch" IsReadOnly="True"/>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch">
+            <ItemsControl ItemsSource="{Binding JSonMessage.board}">
+                <ItemsControl>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding row1}"/>
+                        <TextBlock Text="{Binding row2}"/>
+                        <TextBlock Text="{Binding row3}"/>
+                        <TextBlock Text="{Binding row4}"/>
+                    </StackPanel>
+                </ItemsControl>
+            </ItemsControl>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="0" Grid.Column="0" HorizontalAlignment="Stretch">
+            <ItemsControl ItemsSource="{Binding JSonMessage.hand}">
+                <ItemsControl>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="{Binding value}"/>
+                        <TextBlock Text="{Binding penaltyPoints}"/>
+                    </StackPanel>
+                </ItemsControl>
+            </ItemsControl>
+        </ScrollViewer>
         <Button Grid.Column="1" Grid.Row="0" Content="Disconnect" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding OnDisconnectClickedCommand}"/>
+        <Button Grid.Column="1" Grid.Row="0" Content="Play" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding OnDisconnectClickedCommand}"/>
         <TextBox Grid.Column="0" Grid.Row="1" Text="{Binding Command, FallbackValue='Command'}"/>
         <Button Grid.Column="1" Grid.Row="1" Content="OK" Command="{Binding OnCommandSendClickedCommand}"/>
     </Grid>

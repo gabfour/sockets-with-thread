@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "fklCm0lvrHAN0TWzl+BV9diYTl7YkJdbTuPCQloYCG1HwTnl+hss7YrRdLc7Lv/TH96MAp+5DRDKpHis5QP3qg==",
+  "dgSpecHash": "zakuqVp+rrGz4nZ0xdwGbY/nMWgr6xYD00OFzhWAV/dVUkxIgRFYzG2VhO7jkd+KNXo+L6FxyJJNfFHGKovC2g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\Client.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gabe\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

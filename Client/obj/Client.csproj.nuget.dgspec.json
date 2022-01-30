@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\Client.csproj": {}
+    "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\Client.csproj": {
+    "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\alexa\\OneDrive\\Documents\\Work\\Info\\2021-2022\\DevLogicielAvance\\Project\\sockets-with-thread\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\Gabe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gabe\\Documents\\GitHub\\sockets-with-thread\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\alexa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Gabe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,6 +43,12 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

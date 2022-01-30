@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Client.Services
 {
@@ -59,11 +60,18 @@ namespace Client.Services
                     var message = _client.WaitReceiveMessage();
                     if (message == null) continue;
                     Output.Log(TAG,$"New message received : {message}");
+                    dynamic JSonMessage = ReadJson(message);
                 }
                 Output.Log(TAG, "Backgroung job stopped");
             });
             _backgroundJobClientListener.Start();
             return true;
+        }
+
+        public dynamic? ReadJson(string message)
+        {
+            dynamic NewMessage = JsonConvert.DeserializeObject(message);
+            return NewMessage;
         }
 
         public void StopListening()
