@@ -14,6 +14,7 @@ Alexandre DAVAULT
 
 - Jeu de société choisi : 6 qui prend
 - 1à joueurs maximum, mais l'affichage est pour 4
+- Architecture choisie : MVVM
 
 
 
