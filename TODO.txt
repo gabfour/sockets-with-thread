@@ -1,8 +1,0 @@
-envoyer le nombre de cartes de chaque joueur
-quand la game start, refuser la connexiond
-visuel plateau
-il faut que la game envoie le plateau à tt le monde
-click sur carte
-atttendre que tt le monde réponde
-dispath cartes
-l'affichage doit dépendre du nb de joueurs

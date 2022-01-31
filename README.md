@@ -1,29 +1,57 @@
 # sockets-with-thread
 
+Fabien Saul
 
+Ismail FOCHIVE
 
-Première créer un joueur qui peut envoyer un message et en recevoir 
+Gabriel Fourtoy
 
-Deuxième distribution des cartes (10 cartes) par le serveur pour les joueurs (affichage sur la console du joueur ses cartes) 
-
-Troisième distribution des cartes sur le plateau (4 cartes) affichage sur le serveur 
-
-Quatrième joueur dépose une carte & la carte déposé se met sur une ligne (Changement d'affichage sur le serveur et le joueur) 
-
-Cinquième Mise en place de tour après que les carte soient déposé sur le plateau
-
- Sixième Mettre en place le système de points (sur les cartes et sur les joueurs au début 0) 
-
-Septième Enlever une ligne et la remplacer par la 6ème carte de la ligne, le joueur prend les points si il a déposé la 6ème carte
+Alexandre DAVAULT
 
 
 
+### Description du projet
+
+- Jeu de société choisi : 6 qui prend
+- 1à joueurs maximum, mais l'affichage est pour 4
 
 
-REGLES :  10 cartes par joueur, 4 cartes au centre.  
 
-Si il y a 6 cartes sur une des lignes au centre le dernier joueur à avoir posé  prend la ligne, si une carte est inférieur au 4 cartes du centre il doit choisir une des lignes et la prendre.  Il y a 104 cartes. Tous les joueurs prennent une carte de leur jeu pour la déposer face cachée devant eux sur la table.  Quand tout le monde a posé, on retourne les cartes. Celui qui a déposé la carte la plus faible est le premier à jouer.  La carte est déposé sur la rangé sur laquel le nombre et le plus proche de sa carte. Lors d'une ligne récupéré par un joueur la dernier carte posé passe en premier ---------------------------------------- 
+### Lancer le projet
+
+- Ouvrir la solution avec Visual Studio
+
+- Définir le projet "Server" comme "Startup Project"
+
+- Lancer le projet sans debugging
+
+- Dans l'explorateur de fichier, aller à "sockets-with-thread\Client\bin\Debug\net6.0-windows" et lancer le Client.exe (10 clients possibles simultanément)
+
+- Clicker sur "connect" pour chacun des clients
+
+- Si des problèmes de librairies sont rencontrés, il faut ajouter dans les propriétés de Server:
+
+  - c/c++, Additional include Directories : sockets-with-thread\Libs\json\single_include;
+
+  - linker, Additional include Directories : \sockets-with-thread\Libs;
+  - linker/input, Additional Dependencies : kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;
 
 
 
-Point vue algorithmique:  Liste de joueur et cartes (10 max)  Liste de carte (valeur min 1 max 104), point (1 à 5) Liste board/plateau (4 cartes en colonne, 6 cartes max en ligne)  A chaque fin de tour on enleve la carte qui a été déposé par le joueur Un joueur possède des points de base ils sont à 0 si sur un tour la ligne est au nombre de 6 ou qu'il prend une ligne car sa carte est inférieur au nombre sur la ligne il prend les points qui sont sur les cartes Debut de game : Envoie 10 cartes à chaque joueur Chaque tour : début -> pose une carte pour une ligne, fin -> prend une ligne ou continue sur le prochain tour 10 tour max Deux projets C++ Client (Front en web) | Serveur ( Comme API en web) Serveur : Gestion  tour, gestion des points, gestion des cartes, distrubution des cartes aux joueurs Client : Le joueur aura le droit que de poser la carte et de choisir une ligne que quand sa carte est inférieur aux celle de la rangé Toute l'affichage pour le moment sera en console
+
+### Problèmes rencontrés
+
+- Des personnes dans le groupe étaient cas contact ou avait le COVID durant vos séances, ceci nous a beaucoup ralenti 
+- La mise en place de l'architecture et la compréhension du langage C++ et C#  
+- La mise en place des messages en JSON, avec du recul je pense que ce n'était pas nécessaire de mettre en place des messages en JSON 
+- La gestion de projet, et la répartition des tâches était mauvaise. Plus de point en groupe pour connaître l'avancement de chaque tâche aurait dû être mis en place, parfois une incompréhension concernant la partie Front 
+- Langage méconnu par l'équipe et le développement d'un network et d'un front complexes ont nécessité un temps d'adaptation
+
+
+
+### Lien GitHub
+
+https://github.com/gabfour/sockets-with-thread
+
+
+
